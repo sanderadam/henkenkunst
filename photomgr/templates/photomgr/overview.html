@@ -7,70 +7,6 @@
 
 <style>
 
-div.gallery {
-    border: 1px solid #ccc;
-   
-    margin-bottom: 10px;
-
-}
-
-div.gallery-image {
- background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("");
-    height: 180px;
-
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
-}
-
-div.gallery img {
-    width: 100%;
- 
-
-}
-
-div.desc {
-    padding: 10px 10px 0px 10px;
-    text-align: center;
-    height: 90px;
-}
-
-/*
-* {
-    box-sizing: border-box;
-}
-*/
-
-.responsive {
-    padding: 0 6px;
-    float: left;
-    width: 33.33%;
-}
-
-@media only screen and (max-width: 700px){
-    .responsive {
-        width: 49.99999%;
-        margin: 6px 0;
-    }
-}
-
-@media only screen and (max-width: 500px){
-    .responsive {
-        width: 100%;
-        margin: 6px 0;
-    }
-}
-
-
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 
 
 </style>
@@ -86,7 +22,7 @@ div.desc {
 
   <div class="responsive">
   <div class="gallery">
-    <div class ="gallery-image" data_src="{{schilderij.image.url}}">
+    <div class ="gallery-image" data_src="{{schilderij.image.url}}" data-toggle="modal" data-target="#myModal">
     </div>
 
     <div class="desc Bellefair">
@@ -130,7 +66,7 @@ div.desc {
 	});
 
   //SHow large image on click
-  $( ".myImage" ).click(function() {
+  $( ".gallery-image" ).click(function() {
     $ ( '#modalimg' ).attr('src',$( this ).attr("data_src"))
     $ ( '#modalimg' ).css('width','700')
 
@@ -139,7 +75,7 @@ div.desc {
   });
 
   // Pointing finger on mouse over image
-   $('.myImage').hover(function() {
+   $('.gallery').hover(function() {
         $(this).css('cursor','pointer');
     });
 

@@ -57,7 +57,7 @@ def add_schilderij(request):
 			return redirect('view_schilderij',pk=schilderij.pk)
 		else:
 			#do stuff for unvalid form
-			pass
+			HttpResponse('Invalid form' + form.errors)
 	else:
 		#only if method is not POST
 		form = SchilderijForm()

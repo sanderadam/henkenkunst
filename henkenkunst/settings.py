@@ -126,6 +126,6 @@ if DEBUG:
     MEDIA_URL = 'http://127.0.0.1:8000/static/media/'
 else:
     MEDIA_ROOT = BASE_DIR + '\\photomgr\\static\\media\\'
-    MEDIA_URL = 'http://http://sanderadam.pythonanywhere.com/static/media/'
+    MEDIA_URL = 'http://sanderadam.pythonanywhere.com/static/media/'
 
 #print(MEDIA_ROOT)

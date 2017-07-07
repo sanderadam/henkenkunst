@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1f(8&#3*--zlvu8e9miwolnqts3vypu&9wbg2r!dr5wt7t*p(*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['sanderadam.pythonanywhere.com']
 
@@ -121,10 +121,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+if DEBUG:
+    MEDIA_ROOT = BASE_DIR + '\\photomgr\\static\\media\\'
+    MEDIA_URL = 'http://127.0.0.1:8000/static/media/'
+else:
+    MEDIA_ROOT = BASE_DIR + '\\photomgr\\static\\media\\'
+    MEDIA_URL = 'http://http://sanderadam.pythonanywhere.com/static/media/'
 
-MEDIA_ROOT = BASE_DIR + '\\photomgr\\static\\media\\'
-#STATICFILES_DIRS = [
-#    MEDIA_ROOT
-#    ]
-MEDIA_URL = 'http://127.0.0.1:8000/static/media/'
 #print(MEDIA_ROOT)

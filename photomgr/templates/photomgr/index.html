@@ -85,5 +85,28 @@
       });
     });
 
+// Control carousel with arrow keys
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        $('#myCarousel').carousel("prev")
+
+        case 39: // right
+        $('#myCarousel').carousel("next")
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+$(document).bind(
+  'touchmove',
+  function(e) {
+    e.preventDefault();
+  });
+
   </script>
+
+
+
 {% endblock %}

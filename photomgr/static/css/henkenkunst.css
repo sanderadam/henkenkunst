@@ -280,9 +280,18 @@ width:100%;
 body {
    background-color: grey   ;
    padding-top: 50px;
+  position: relative;    
 }
 
+html {
 
+
+}
+
+.myFixed
+{
+  position: fixed;
+}
 
 .col-centered {
     float: none;

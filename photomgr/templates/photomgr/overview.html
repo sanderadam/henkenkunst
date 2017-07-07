@@ -1,0 +1,159 @@
+
+{% extends 'photomgr/base.html' %}
+
+{% block title%}Henkenkunst - schilderijen aanpassen{%endblock%}
+
+{% block content %}
+
+<style>
+
+div.gallery {
+    border: 1px solid #ccc;
+   
+    margin-bottom: 10px;
+
+}
+
+div.gallery-image {
+ background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("");
+    height: 180px;
+
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+ 
+
+}
+
+div.desc {
+    padding: 10px 10px 0px 10px;
+    text-align: center;
+    height: 90px;
+}
+
+/*
+* {
+    box-sizing: border-box;
+}
+*/
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 33.33%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+        margin: 6px 0;
+    }
+}
+
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+</style>
+
+<div class="container myOverview">
+
+
+  
+	<h1 class="Bellefair" align="center">Hier ziet u het overzicht van alle schilderijen</h1>
+
+
+  {% for schilderij in schilderijen %}
+
+  <div class="responsive">
+  <div class="gallery">
+    <div class ="gallery-image" data_src="{{schilderij.image.url}}">
+    </div>
+
+    <div class="desc Bellefair">
+      <p class="myDesc">{{schilderij.beschrijving}}</p>
+      <p>{{schilderij.formaat}}</p>
+    </div>
+
+  </div>
+</div>
+
+
+  {% endfor %}
+
+</div> <!-- container -->
+<br>
+<!-- Image popup -->
+
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="//placehold.it/1000x600" class="img-responsive" id="modalimg">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+	$( ".gallery-image" ).each(function( index ) {
+	   // console.log("url(\"" + $( this ).attr("data_src") + "\")")
+      $( this ).css("background-image","url(\"" + $( this ).attr("data_src") + "\")")
+
+	});
+
+  //SHow large image on click
+  $( ".myImage" ).click(function() {
+    $ ( '#modalimg' ).attr('src',$( this ).attr("data_src"))
+    $ ( '#modalimg' ).css('width','700')
+
+
+   // alert($( this ).attr("data_src"))
+  });
+
+  // Pointing finger on mouse over image
+   $('.myImage').hover(function() {
+        $(this).css('cursor','pointer');
+    });
+
+
+  $( ".myOverviewRow" ).each(function( index ) {
+     // console.log("url(\"" + $( this ).attr("data_src") + "\")")
+      $( this ).height(200)
+
+  });
+
+
+
+
+
+</script>
+
+{% endblock %}

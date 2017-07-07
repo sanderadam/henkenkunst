@@ -1,0 +1,100 @@
+
+{% extends 'photomgr/base.html' %}
+
+{% block title%}Henkenkunst - schilderijen aanpassen{%endblock%}
+
+{% block content %}
+
+
+<div class="container myOverview">
+
+
+  
+	<h1 class="Bellefair" align="center">Hier ziet u het overzicht van alle schilderijen</h1>
+
+
+  {% for schilderij in schilderijen %}
+
+  <div class="row">
+	<div class="col-xs-4 myImage myOverviewRow" data-toggle="modal" data-target="#myModal" data_src="{{schilderij.image.url}}"></div>
+
+	<div class="col-xs-6 myOverviewRow">
+  <br>
+  <ul>
+    <li class="Bellefair"><b>Beschrijving:</b> {{schilderij.beschrijving}}</li>
+    <li class="Bellefair"><b>Formaat:</b> {{schilderij.formaat}}</li>
+    <li class="Bellefair"><b>Zichtbaar?</b> 
+    {% if schilderij.zichtbaar %}Ja{% else %}Nee{% endif %}
+    </li>
+
+  </ul>
+  
+  </div>
+
+	<div class="col-xs-1 myOverviewRow">
+  <br>
+
+    <a href="{% url 'edit_schilderij' pk=schilderij.pk%}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+
+<!--     <button align="center" type="button" class="btn btn-default" href="/view/{{schilderij.pk}}/">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </button> -->
+  </div>
+  </div>
+
+  {% endfor %}
+
+</div> <!-- container -->
+<br>
+<!-- Image popup -->
+
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="//placehold.it/1000x600" class="img-responsive" id="modalimg">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+	$( ".myImage" ).each(function( index ) {
+	   // console.log("url(\"" + $( this ).attr("data_src") + "\")")
+      $( this ).css("background-image","url(\"" + $( this ).attr("data_src") + "\")")
+
+	});
+
+  //SHow large image on click
+  $( ".myImage" ).click(function() {
+    $ ( '#modalimg' ).attr('src',$( this ).attr("data_src"))
+   // alert($( this ).attr("data_src"))
+  });
+
+  // Pointing finger on mouse over image
+   $('.myImage').hover(function() {
+        $(this).css('cursor','pointer');
+    });
+
+
+  $( ".myOverviewRow" ).each(function( index ) {
+     // console.log("url(\"" + $( this ).attr("data_src") + "\")")
+      $( this ).height(200)
+
+  });
+
+
+
+
+
+</script>
+
+{% endblock %}

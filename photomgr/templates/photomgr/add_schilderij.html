@@ -1,0 +1,158 @@
+
+{% extends 'photomgr/base.html' %}
+{% block title%}Henkenkunst - schilderijen aanpassen{%endblock%}
+{% block content %}
+
+
+<form action="{% url 'add_schilderij'%}" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+
+
+  <div class="container myOverview">
+    <h1 class="Bellefair" align="center" id="myBeschrijving">"Nieuw Schilderij"</h1>
+
+    <div class="row">
+      <div class="col-xs-12 myImage myOverviewRow" id="myEditPicture" data_src="" >
+      </div>
+    </div>  
+    <br>
+
+    <div class="row myEditRow FlexCenter">
+      <div class="col-xs-8">
+        <div class="row">
+          <div class="col-xs-4 Bellefair"><b>Beschrijving:</b></div>
+          <div class="col-xs-8 Bellefair">{{form.beschrijving}}</div>
+        </div>    
+        <div class="row">
+          <div class="col-xs-4 Bellefair"><b>Formaat:</b></div>
+          <div class="col-xs-8 Bellefair">{{form.formaat}}</div>
+        </div>    
+        <div class="row">
+          <div class="col-xs-4 Bellefair"><b>Zichtbaar?:</b></div>
+          <div class="col-xs-8 Bellefair">{{form.zichtbaar}}</div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-2 ">
+          
+          <span class="Bellefair">
+            
+            <input type="file" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Foto wijzigen" id="id_image" name="image">
+            
+            <!-- {{form.image}}  -->
+
+          </span>
+          
+      </div>
+      <!-- {{form.as_p}} -->
+
+      <div class="col-xs-2 ">
+      
+              <input type="submit" class="btn" value="Opslaan">
+    
+      </div>
+    </div>
+
+
+  </div> <!-- container -->
+
+
+</form>
+<!-- Image popup -->
+
+
+
+
+<script type="text/javascript">
+  $( ".myImage" ).each(function( index ) {
+    $( this ).css("background-image","url(\"" + $( this ).attr("data_src") + "\")")
+    $ ( '#myModalImg' ).css("background-image","url(\"" + $( this ).attr("data_src") + "\")")
+  });
+
+/*
+  $( "#myModalImg" ).(function( index ) {
+      $( this ).css("background-image","url(\"" + $( this ).attr("data_src") + "\")")
+  });
+  */
+
+  //SHow large image on click
+  $( ".myImage" ).click(function() {
+    $ ( '#modalimg' ).attr('src',$( this ).attr("data_src"))
+   // alert($( this ).attr("data_src"))
+});
+
+  // $( "#id_beschrijving").change(function(){
+  //   $ ('#myBeschrijving').text($( this ).val() )
+
+  // });
+
+$('#id_beschrijving').on('input', function() {
+    $ ('#myBeschrijving').text($( this ).val() )
+});
+
+
+  $( ".myOverviewRow" ).each(function( index ) {
+     // console.log("url(\"" + $( this ).attr("data_src") + "\")")
+     $( this ).height(200)
+ });
+
+  var $sizePicture = (function () { 
+    $wHeight = $(window).height();
+    $( "#myEditPicture" ).height($wHeight - 270)
+  });
+
+  $( "#myEditPicture" ).each(function( index ) {
+     //use this function to make the edit picture nicely fit the screen size
+     $sizePicture()
+ });
+
+  $(window).on('resize', function (){
+    $sizePicture()
+  });
+
+
+
+
+
+  $ ("#id_image").change (function() {
+  //var imgVal = $("#id_image").filestyle('buttonText');
+  //var imgVal = $( this ).filestyle('buttonText');
+  //var imgVal = $( this ).val();
+  //var imgVal = $(this).attr('val')
+    //var imagediv = $('#imagediv')
+    //alert(imagediv  )
+    //console.log(imgVal)
+    //imagediv.css("background-image","url(\"" + $( this ).attr("data_src") + "\")")
+    //$( this ).css("background-image","url(\"" + $( this ).attr("data_src") + "\")")
+    readURL(this);
+  });
+
+
+
+  function readURL(input) {
+
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#myEditPicture').css('background-image',"url(" + e.target.result + ")");
+            //$('#modalimg').css('background-image',"url(" + e.target.result + ")");
+            //$('#imagediv').attr('data_src',"url(" + e.target.result + ")");
+            //$ ( '#modalimg' ).attr('src',"url(" + e.target.result + ")");
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+$("#id_image").change(function(){
+  readURL(this);
+});
+
+
+
+</script>
+
+
+
+{%endblock%}

@@ -1,0 +1,33 @@
+{% extends 'photomgr/base.html' %}
+
+{% block title%}Henkenkunst - alle schilderijen{%endblock%}
+
+{% block content %}
+<!-- slick carousel -->
+
+
+<div class="myCarousel container slick-fiddle-outer">
+ {% for schilderij in schilderijen %}
+   <div class="slick-fiddle-inner"><div><H1>TEST</H1></div></div>
+  {% endfor %}
+</div>
+
+
+  <script type="text/javascript" src="static/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.myCarousel').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+
+      });
+    });
+
+    
+  </script>
+
+
+{% endblock %}

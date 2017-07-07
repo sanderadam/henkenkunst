@@ -1,0 +1,330 @@
+body, html {
+    /* height: 100%; */
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+   
+    margin-bottom: 10px;
+
+}
+
+
+
+div.gallery-image {
+ background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("");
+    height: 180px;
+
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+ 
+
+}
+
+div.desc {
+    padding: 10px 10px 0px 10px;
+    text-align: center;
+    height: 90px;
+}
+
+/*
+* {
+    box-sizing: border-box;
+}
+*/
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 33.33%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+        margin: 6px 0;
+    }
+}
+
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.FlexCenter {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.full {
+  background-image: url(http://placehold.it/1920x1080) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg { 
+    /* The image used */
+    background-image: url("/static/img/BoltPro.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Transition */  
+    transition-property: background-image;
+    transition-duration: 3s;
+
+}
+
+.myDesc {
+
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+
+.mainimage {
+
+    height:100%;
+
+        /* The image used */
+    background-image: url("/static/img/BoltPro.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
+}
+
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.body-color {
+ background-color: rgb(0,0,0);
+
+}
+
+.sandertje {
+    background-image: url("/static/img/Boltpro.jpg");
+}
+
+
+.myImage {
+
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+/*
+.myModal {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  height: 700px;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color:green;  
+
+}
+
+*/
+
+.myCenter {
+  text-align: center;
+}
+
+.myButton {
+    position: absolute;
+    top: 50%;
+}
+
+.Bellefair {
+
+  font-family: 'Bellefair', serif;
+}
+
+
+.mySchilderijText {
+
+  vertical-align: middle;
+  height: 200px;
+
+
+}
+
+.myGrey{
+
+  /* border: 1px solid; */
+  background-color: rgb(240,240,240)
+}
+
+.mySpan {
+  /* display: table-cell; */  
+  vertical-align: middle;
+}
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.myOverview {
+  max-width: 800px;
+}
+
+.myOverviewRow {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.myEditRow {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  background-color: rgba(255,255,255,0.5);
+}
+
+
+
+.SchilderijDescription {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 100px;
+  height: 50px;
+  background-color: green;
+
+}
+
+.slickContainer {
+
+  position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width:100%;
+}
+
+.myFixed {
+
+  width: 300px;
+  height: 300px;
+
+}
+
+/*
+.slick-dots {
+  top: 100px;  // play with the number of pixels to position it as you want
+  left: 00px; // play with the number of pixels to position it as you want
+}
+*/
+
+.slick-slide {
+    outline: none
+}
+
+.slick-fiddle-outer {
+  max-width: 700px;
+  background-color: red;
+}
+
+.slick-fiddle-inner {
+  width: 400px;
+  margin: 0 auto;
+  background-color: blue;
+}
+
+body {
+   background-color: grey   ;
+   padding-top: 50px;
+}
+
+
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.myLoginContainer {
+
+margin: 25px;
+max-width: 600px;
+padding: 25px;
+background-color: rgba(0,0,0,0.1)
+
+}
+
+
+.myContact {
+
+   background-image: url("/static/img/fiore.jpg");
+
+    /* Full height */
+    height: 85%; 
+    width: 40%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: fixed;
+    top: 70px;
+    left:10px;
+
+}
+
+.myContactText {
+
+  width: 50%;
+
+  position: absolute;
+  top: 70px;
+  right: 25px;
+
+  font-size: 14pt;
+}

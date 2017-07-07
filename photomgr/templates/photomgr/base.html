@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <link rel="icon" href="/static/img/SA.ico">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Google fonts -->  
+  <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+
+  <!-- Custom CCS  -->
+  <link href="/static/css/henkenkunst.css" rel="stylesheet">
+
+  <title>{% block title %}HenkenKunst{%endblock%}</title>
+</head>
+<body>
+
+  <!-- Jquery -->
+  <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Swiping -->
+  <script type="text/javascript" src="/static/js/jquery.touchSwipe.min.js"></script>
+
+  <!-- file boxes -->
+  <script type="text/javascript" src="/static/js/bootstrap-filestyle.min.js"> </script>
+
+
+<!-- navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand Bellefair" href="/">HenkenKunst</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav ">
+      <li class="{% if active.0%}active {%endif%}Bellefair"><a href="/">Diashow</a></li>
+      <li class="{% if active.1%}active {%endif%}Bellefair"><a href=" {% url 'overview' %}">Overzicht</a></li>
+      <li class="{% if active.2%}active {%endif%}Bellefair"><a href=" {% url 'contact' %}  ">Contact</a></li>
+    </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+       {% if user.is_authenticated %}
+        <li class="{% if active.4%}active {%endif%}Bellefair"><a href="{% url 'view_all' %}">Schilderijen aanpassen</a></li>
+        <li class="{% if active.3%}active {%endif%}Bellefair"><a href="{% url 'add_schilderij' %}">Schilderijen toevoegen</a></li>
+       {% else %}
+          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> <span class="Bellefair"> Inloggen</span></a></li>
+       {% endif %}
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- /navbar -->
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
